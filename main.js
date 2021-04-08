@@ -25,5 +25,11 @@ function clearGrid () {
 makeGrid(16, 16);
 
 newGridButton.addEventListener("click", function() {
-    clearGrid();
+    let square = document.getElementsByClassName("grid-item");
+    for (i = 0; i < square.length; i++) {
+        square[i].style.backgroundColor = "white";
+        square[i].style.color = "black";
+    };
+    square = prompt("How many squares per side?", "16")
+    makeGrid(square, square);
 });
