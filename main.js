@@ -1,35 +1,32 @@
 const newGridButton = document.getElementById("newGridButton");
-
 const container = document.getElementById("container");
-function makeGrid(rows, cols) {
-    container.style.setProperty("--grid-rows", rows);
-    container.style.setProperty("--grid-cols", cols);
-    for (i = 0; i < (rows * cols); i++) {
-        let square = document.createElement("div");
-        square.onmouseover = function() {
-            square.style.backgroundColor = "black";
-            square.style.color = "white";
+
+function makeGrid(input) {
+    for (i = 0; i < input ** 2; i++) {
+        container.style.cssText = `grid-template-columns: repeat(${input}, 1fr
+        ); grid-template-rows: repeat(${input}, 1fr`;
+        let squares = document.createElement("div");
+        squares.classList.add("squares");
+        squares.onmouseover = function() {
+            squares.style.backgroundColor = "black";
+            squares.style.color = "white";
         };
-        container.appendChild(square).className = "grid-item";
+        container.appendChild(squares);
     };
 };
 
-function clearGrid () {
-    let square = document.getElementsByClassName("grid-item");
-    for (i = 0; i < square.length; i++) {
-        square[i].style.backgroundColor = "white";
-        square[i].style.color = "black";
+function eraseGrid() {
+    let squares = document.getElementsByClassName("squares");
+    for (i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = "white";
+        squares[i].style.color = "black";
     };
 };
 
-makeGrid(16, 16);
+makeGrid(16);
 
 newGridButton.addEventListener("click", function() {
-    let square = document.getElementsByClassName("grid-item");
-    for (i = 0; i < square.length; i++) {
-        square[i].style.backgroundColor = "white";
-        square[i].style.color = "black";
-    };
-    square = prompt("How many squares per side?", "16")
-    makeGrid(square, square);
+    eraseGrid();
+    input = prompt("How many squares per side?", "16")
+    makeGrid(input);
 });
