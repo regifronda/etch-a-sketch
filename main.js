@@ -15,14 +15,6 @@ function makeGrid(input) {
     };
 };
 
-function eraseGrid() {
-    let squares = document.getElementsByClassName("squares");
-    for (i = 0; i < squares.length; i++) {
-        squares[i].style.backgroundColor = "white";
-        squares[i].style.color = "black";
-    };
-};
-
 makeGrid(16);
 
 newGridButton.addEventListener("click", function() {
