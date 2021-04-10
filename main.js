@@ -26,7 +26,10 @@ function eraseGrid() {
 makeGrid(16);
 
 newGridButton.addEventListener("click", function() {
-    eraseGrid();
+    let squaresToRemove = document.getElementsByClassName("squares");
+    for (i = squaresToRemove.length-1; i >= 0; i--) {
+        squaresToRemove[i].remove();
+    }
     input = prompt("How many squares per side?", "16")
     makeGrid(input);
 });
