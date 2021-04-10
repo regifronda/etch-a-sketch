@@ -11,7 +11,7 @@ function makeGrid(input) {
             squares.style.backgroundColor = "black";
             squares.style.color = "white";
         };
-        container.appendChild(squares);
+        container.appendChild(squares); 
     };
 };
 
