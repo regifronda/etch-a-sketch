@@ -22,6 +22,10 @@ newGridButton.addEventListener("click", function() {
     for (i = squaresToRemove.length-1; i >= 0; i--) {
         squaresToRemove[i].remove();
     }
-    input = prompt("How many squares per side?", "16")
-    makeGrid(input);
+    input = prompt("How many squares per side? (Max 100)", "16")
+    if (input > 100) {
+        alert("Max is 100");
+    } else if (input <= 100) {
+        makeGrid(input);
+    }
 });
