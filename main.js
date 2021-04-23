@@ -11,21 +11,22 @@ function makeGrid(input) {
             squares.style.backgroundColor = "black";
             squares.style.color = "white";
         };
-        container.appendChild(squares); 
+        container.appendChild(squares);
     };
+};
+
+function eraseGrid() {
+    let squares = document.getElementsByClassName("squares");
+    for (i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = "white";
+        squares[i].style.color = "black";
+    };    
 };
 
 makeGrid(16);
 
 newGridButton.addEventListener("click", function() {
-    let squaresToRemove = document.getElementsByClassName("squares");
-    for (i = squaresToRemove.length-1; i >= 0; i--) {
-        squaresToRemove[i].remove();
-    }
-    input = prompt("How many squares per side? (Max 100)", "16")
-    if (input > 100) {
-        alert("Max is 100");
-    } else if (input <= 100) {
-        makeGrid(input);
-    }
+    eraseGrid();
+    input = prompt("How many squares per side?", "16")
+    makeGrid(input);
 });
